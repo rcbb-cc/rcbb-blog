@@ -50,7 +50,7 @@ jobs:
           # 对应我们项目压缩包的文件路径
           local_path: 'docs/.vuepress/release/*'
           # 服务器上的路径，需要确认此目录已在服务端创建
-          remote_path: '/data/www/release'
+          remote_path: '/apps/www/release'
       # 第五步：部署到服务器
       - name: Deploy
         # 使用ssh链接服务器
