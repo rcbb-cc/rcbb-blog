@@ -1,0 +1,79 @@
+name: CI
+
+#on: [push]
+
+# 在master分支发生push事件时触发。
+on:
+  push:
+    branches:
+      - master
+# 工作流
+jobs:
+  build:
+    #运行在虚拟机环境ubuntu-latest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 12.x ]
+    steps:
+      # 第一步：下载源码（CI/CD拉取代码到自己的本地）
+      - name: Checkout
+        # 使用的动作。格式：userName/repoName。
+        # 作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+        uses: actions/checkout@v1
+      # 第二步：安装nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        # 使用的动作：安装nodejs
+        uses: actions/setup-node@v1
+        with:
+          # 版本
+          node-version: ${{ matrix.node-version }}
+      # 第三步：执行deploy.sh
+      - name: run deploy.sh
+        # 设置环境变量
+        env:
+          # 设置GITHUB_TOKEN私密变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: npm install && npm run deploy
+      # 第四步：将deploy.sh中压缩好的内容上传到服务器
+      - name: deploy file to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.3
+        with:
+          # ssh username
+          username: ${{ secrets.BLOG_USERNAME }}
+          # 远程服务器IP
+          server: ${{ secrets.BLOG_HOST }}
+          # 远程服务器ssh端口，默认22
+          port: ${{ secrets.BLOG_PORT }}
+          # 认证服务器秘钥对的私钥
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # 对应我们项目压缩包的文件路径
+          local_path: 'docs/.vuepress/release/*'
+          # 服务器上的路径，需要确认此目录已在服务端创建
+          remote_path: '/data/www/release'
+      # 第五步：部署到服务器
+      - name: Deploy
+        # 使用ssh链接服务器
+        uses: appleboy/ssh-action@master
+        with:
+          username: ${{ secrets.BLOG_USERNAME }}
+          host: ${{ secrets.BLOG_HOST }}
+          port: ${{ secrets.BLOG_PORT }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: | # 1.删除目录；2：创建目录；3：cd进入release目录；4：将release.tar解压到指定目录；
+            rm -rf /data/www/rcbb.cc
+            mkdir -p /data/www/rcbb.cc
+            cd /data/www/release
+            tar -zxvf release.tgz -C /data/www/rcbb.cc
+#      - name: 'Send mail'
+#        uses: dawidd6/action-send-mail@master
+#        with:
+#          server_address: smtp.exmail.qq.com
+#          server_port: 465
+#          username: ${{ secrets.MAILUSERNAME }}
+#          password: ${{ secrets.MAILPASSWORD }}
+#          subject: rcbb-blog推送完成
+#          body: rcbb-blog推送完成
+#          to: ${{ secrets.TOMAILUSERNAME }}
+#          from: GitHub Actions
+#          content_type: text/html
