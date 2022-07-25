@@ -64,7 +64,7 @@ jobs:
             rm -rf /apps/www/rcbb.cc
             mkdir -p /apps/www/rcbb.cc
             cd /apps/www/release
-            tar -zxvf release.tgz -C /data/www/rcbb.cc
+            tar -zxvf release.tgz -C /apps/www/rcbb.cc
 #      - name: 'Send mail'
 #        uses: dawidd6/action-send-mail@master
 #        with:
