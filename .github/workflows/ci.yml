@@ -46,7 +46,7 @@ jobs:
           # 远程服务器ssh端口，默认22
           port: ${{ secrets.BLOG_PORT }}
           # 认证服务器秘钥对的私钥
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_private_key: ${{ secrets.BLOG_SSH_PRIVATE_KEY }}
           # 对应我们项目压缩包的文件路径
           local_path: 'docs/.vuepress/release/*'
           # 服务器上的路径，需要确认此目录已在服务端创建
@@ -59,11 +59,11 @@ jobs:
           username: ${{ secrets.BLOG_USERNAME }}
           host: ${{ secrets.BLOG_HOST }}
           port: ${{ secrets.BLOG_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.BLOG_SSH_PRIVATE_KEY }}
           script: | # 1.删除目录；2：创建目录；3：cd进入release目录；4：将release.tar解压到指定目录；
-            rm -rf /data/www/rcbb.cc
-            mkdir -p /data/www/rcbb.cc
-            cd /data/www/release
+            rm -rf /apps/www/rcbb.cc
+            mkdir -p /apps/www/rcbb.cc
+            cd /apps/www/release
             tar -zxvf release.tgz -C /data/www/rcbb.cc
 #      - name: 'Send mail'
 #        uses: dawidd6/action-send-mail@master
