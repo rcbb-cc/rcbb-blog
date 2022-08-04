@@ -187,11 +187,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 插件配置
     plugins: <UserPlugins>[
-
-        'vuepress-plugin-baidu-autopush', // 百度自动推送
-
+        // 百度自动推送
+        'vuepress-plugin-baidu-autopush',
+        // 阅读顶部进度条
+        'reading-progress',
         [
-            'vuepress-plugin-baidu-tongji', // 百度统计
+            // 百度统计
+            'vuepress-plugin-baidu-tongji',
             {
                 hm: baiduCode,
             },
