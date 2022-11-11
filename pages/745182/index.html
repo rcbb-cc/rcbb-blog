@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SpringBoot二维码生成(复制即用) | 日常bb</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-8621788234752924" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8621788234752924" crossorigin="anonymous"></script>
+    <meta name="description" content="一些技术，一些随想，一些资源收藏。">
+    <meta name="keywords" content="后端技术,rcbb,个人博客">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#7b074b">
+    
+    <link rel="preload" href="/assets/css/0.styles.4bd9d9ff.css" as="style"><link rel="preload" href="/assets/js/app.194a4a95.js" as="script"><link rel="preload" href="/assets/js/2.2be692c2.js" as="script"><link rel="preload" href="/assets/js/15.76508887.js" as="script"><link rel="prefetch" href="/assets/js/10.2bd91a31.js"><link rel="prefetch" href="/assets/js/11.1a31da13.js"><link rel="prefetch" href="/assets/js/12.94996174.js"><link rel="prefetch" href="/assets/js/13.7a7f6f7e.js"><link rel="prefetch" href="/assets/js/14.2ce6b319.js"><link rel="prefetch" href="/assets/js/16.df266e02.js"><link rel="prefetch" href="/assets/js/17.2a807231.js"><link rel="prefetch" href="/assets/js/18.680ca031.js"><link rel="prefetch" href="/assets/js/19.7845cd8c.js"><link rel="prefetch" href="/assets/js/20.929010c5.js"><link rel="prefetch" href="/assets/js/21.82b449d4.js"><link rel="prefetch" href="/assets/js/22.576fef98.js"><link rel="prefetch" href="/assets/js/23.4033bd96.js"><link rel="prefetch" href="/assets/js/24.c2a0aceb.js"><link rel="prefetch" href="/assets/js/25.3b417885.js"><link rel="prefetch" href="/assets/js/26.cd94e08e.js"><link rel="prefetch" href="/assets/js/27.13cb7d7a.js"><link rel="prefetch" href="/assets/js/28.ff29fa66.js"><link rel="prefetch" href="/assets/js/29.9e5c63df.js"><link rel="prefetch" href="/assets/js/3.fed00e63.js"><link rel="prefetch" href="/assets/js/30.9ebc184b.js"><link rel="prefetch" href="/assets/js/31.08f5fe3f.js"><link rel="prefetch" href="/assets/js/32.4b023380.js"><link rel="prefetch" href="/assets/js/33.4e7d9d64.js"><link rel="prefetch" href="/assets/js/34.7e5ad33b.js"><link rel="prefetch" href="/assets/js/35.9af9a4c6.js"><link rel="prefetch" href="/assets/js/36.2813109f.js"><link rel="prefetch" href="/assets/js/37.bb50bd73.js"><link rel="prefetch" href="/assets/js/38.6814b4c9.js"><link rel="prefetch" href="/assets/js/39.ec3e0e2a.js"><link rel="prefetch" href="/assets/js/4.3b604228.js"><link rel="prefetch" href="/assets/js/40.f4a5b046.js"><link rel="prefetch" href="/assets/js/41.af53aac4.js"><link rel="prefetch" href="/assets/js/42.2ee6040b.js"><link rel="prefetch" href="/assets/js/43.03837ab2.js"><link rel="prefetch" href="/assets/js/44.86b43546.js"><link rel="prefetch" href="/assets/js/45.458d7efe.js"><link rel="prefetch" href="/assets/js/46.f6d2c34f.js"><link rel="prefetch" href="/assets/js/47.24d473e3.js"><link rel="prefetch" href="/assets/js/48.8fa8e4ab.js"><link rel="prefetch" href="/assets/js/49.16edad72.js"><link rel="prefetch" href="/assets/js/5.2eaa236d.js"><link rel="prefetch" href="/assets/js/50.cda0b38b.js"><link rel="prefetch" href="/assets/js/51.06e625ae.js"><link rel="prefetch" href="/assets/js/52.c26cdffe.js"><link rel="prefetch" href="/assets/js/53.6f8ea83c.js"><link rel="prefetch" href="/assets/js/54.fa95ec77.js"><link rel="prefetch" href="/assets/js/6.5e70e968.js"><link rel="prefetch" href="/assets/js/7.e18ce316.js"><link rel="prefetch" href="/assets/js/8.c2975b26.js"><link rel="prefetch" href="/assets/js/9.df3e6d5f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4bd9d9ff.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="日常bb" class="logo"> <span class="site-name can-hide">日常bb</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/article/" class="nav-link">文章</a></div><div class="nav-item"><a href="/note/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/idea/" class="nav-link">冥思</a></div><div class="nav-item"><a href="/other/" class="nav-link">其他</a></div><div class="nav-item"><a href="/favorites/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/rcbb-cc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/avatar.jpg"> <div class="blogger-info"><h3>日常bb</h3> <span>想起来全是问题，做起来才有答案。</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/article/" class="nav-link">文章</a></div><div class="nav-item"><a href="/note/" class="nav-link">笔记</a></div><div class="nav-item"><a href="/idea/" class="nav-link">冥思</a></div><div class="nav-item"><a href="/other/" class="nav-link">其他</a></div><div class="nav-item"><a href="/favorites/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/rcbb-cc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Redis</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Spring</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>基础使用</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/f4535c/" class="sidebar-link">SpringBoot集成ShardingSphere4.1.1(自定义分库、分表算法)</a></li><li><a href="/pages/82388c/" class="sidebar-link">使用Flyway对数据库版本控制</a></li><li><a href="/pages/d57d55/" class="sidebar-link">行为验证码(AJ-Captcha快速入门)</a></li><li><a href="/pages/745182/" aria-current="page" class="active sidebar-link">SpringBoot二维码生成(复制即用)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/745182/#使用场景" class="sidebar-link">使用场景</a></li><li class="sidebar-sub-header level2"><a href="/pages/745182/#具体实现" class="sidebar-link">具体实现</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/745182/#依赖" class="sidebar-link">依赖</a></li><li class="sidebar-sub-header level3"><a href="/pages/745182/#工具类" class="sidebar-link">工具类</a></li><li class="sidebar-sub-header level3"><a href="/pages/745182/#测试入口" class="sidebar-link">测试入口</a></li><li class="sidebar-sub-header level3"><a href="/pages/745182/#效果" class="sidebar-link">效果</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/745182/#源码" class="sidebar-link">源码</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>Spring Security</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>收藏</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>概念</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>容器</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8621788234752924"
+     data-ad-slot="8498052873"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/article/#文章" data-v-06225672>文章</a></li><li data-v-06225672><a href="/article/#Spring" data-v-06225672>Spring</a></li><li data-v-06225672><a href="/article/#基础使用" data-v-06225672>基础使用</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://rcbb.cc/" target="_blank" title="作者" class="beLink" data-v-06225672>rcbb</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2022-08-28</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">SpringBoot二维码生成(复制即用)<!----></h1>  <div class="theme-vdoing-content content__default"><h2 id="使用场景"><a href="#使用场景" class="header-anchor">#</a> 使用场景</h2> <p>使用场景：H5 或 APP 上需要根据服务器的某些数据来动态生成二维码的时候。</p> <h2 id="具体实现"><a href="#具体实现" class="header-anchor">#</a> 具体实现</h2> <h3 id="依赖"><a href="#依赖" class="header-anchor">#</a> 依赖</h3> <p>主要是利用 zxing 库，google 的开源库。</p> <blockquote><p>ZXing是一个开放源码的，用Java实现的多种格式的1D/2D条码图像处理库，它包含了联系到其他语言的端口。Zxing可以实现使用手机的内置的摄像头完成条形码的扫描及解码。</p></blockquote> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;!-- 二维码生成 --&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+	&lt;artifactId&gt;core&lt;/artifactId&gt;
+	&lt;version&gt;3.3.3&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+	&lt;artifactId&gt;javase&lt;/artifactId&gt;
+	&lt;version&gt;3.3.3&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="工具类"><a href="#工具类" class="header-anchor">#</a> 工具类</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/**
+ * &lt;p&gt;
+ * QRCodeUtil
+ * &lt;/p&gt;
+ *
+ * @author rcbb.cc
+ * @date 2022/8/28
+ */
+@Slf4j
+@UtilityClass
+public class QRCodeUtil {
+
+    /**
+     * 默认宽度
+     */
+    private static final Integer WIDTH = 140;
+    /**
+     * 默认高度
+     */
+    private static final Integer HEIGHT = 140;
+
+    /**
+     * LOGO 默认宽度
+     */
+    private static final Integer LOGO_WIDTH = 22;
+    /**
+     * LOGO 默认高度
+     */
+    private static final Integer LOGO_HEIGHT = 22;
+
+    /**
+     * 图片格式
+     */
+    private static final String IMAGE_FORMAT = &quot;png&quot;;
+    private static final String CHARSET = &quot;utf-8&quot;;
+    /**
+     * 原生转码前面没有 data:image/png;base64 这些字段，返回给前端是无法被解析
+     */
+    private static final String BASE64_IMAGE = &quot;data:image/png;base64,%s&quot;;
+
+    /**
+     * 生成二维码，使用默认尺寸
+     *
+     * @param content 内容
+     * @return
+     */
+    public String getBase64QRCode(String content) {
+        return getBase64Image(content, WIDTH, HEIGHT, null, null, null);
+    }
+
+    /**
+     * 生成二维码，使用默认尺寸二维码，插入默认尺寸logo
+     *
+     * @param content 内容
+     * @param logoUrl logo地址
+     * @return
+     */
+    public String getBase64QRCode(String content, String logoUrl) {
+        return getBase64Image(content, WIDTH, HEIGHT, logoUrl, LOGO_WIDTH, LOGO_HEIGHT);
+    }
+
+    /**
+     * 生成二维码
+     *
+     * @param content    内容
+     * @param width      二维码宽度
+     * @param height     二维码高度
+     * @param logoUrl    logo 在线地址
+     * @param logoWidth  logo 宽度
+     * @param logoHeight logo 高度
+     * @return
+     */
+    public String getBase64QRCode(String content, Integer width, Integer height, String logoUrl, Integer logoWidth, Integer logoHeight) {
+        return getBase64Image(content, width, height, logoUrl, logoWidth, logoHeight);
+    }
+
+    private String getBase64Image(String content, Integer width, Integer height, String logoUrl, Integer logoWidth, Integer logoHeight) {
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        BufferedImage bufferedImage = crateQRCode(content, width, height, logoUrl, logoWidth, logoHeight);
+        try {
+            ImageIO.write(bufferedImage, IMAGE_FORMAT, os);
+        } catch (IOException e) {
+            log.error(&quot;[生成二维码，错误{}]&quot;, e);
+        }
+        // 转出即可直接使用
+        return String.format(BASE64_IMAGE, Base64.encode(os.toByteArray()));
+    }
+
+
+    /**
+     * 生成二维码
+     *
+     * @param content    内容
+     * @param width      二维码宽度
+     * @param height     二维码高度
+     * @param logoUrl    logo 在线地址
+     * @param logoWidth  logo 宽度
+     * @param logoHeight logo 高度
+     * @return
+     */
+    private BufferedImage crateQRCode(String content, Integer width, Integer height, String logoUrl, Integer logoWidth, Integer logoHeight) {
+        if (StrUtil.isNotBlank(content)) {
+            ServletOutputStream stream = null;
+            HashMap&lt;EncodeHintType, Comparable&gt; hints = new HashMap&lt;&gt;(4);
+            // 指定字符编码为utf-8
+            hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
+            // 指定二维码的纠错等级为中级
+            hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.M);
+            // 设置图片的边距
+            hints.put(EncodeHintType.MARGIN, 2);
+            try {
+                QRCodeWriter writer = new QRCodeWriter();
+                BitMatrix bitMatrix = writer.encode(content, BarcodeFormat.QR_CODE, width, height, hints);
+                BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+                for (int x = 0; x &lt; width; x++) {
+                    for (int y = 0; y &lt; height; y++) {
+                        bufferedImage.setRGB(x, y, bitMatrix.get(x, y) ? 0xFF000000 : 0xFFFFFFFF);
+                    }
+                }
+                if (StrUtil.isNotBlank(logoUrl)) {
+                    insertLogo(bufferedImage, width, height, logoUrl, logoWidth, logoHeight);
+                }
+                return bufferedImage;
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                if (stream != null) {
+                    try {
+                        stream.flush();
+                        stream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 二维码插入logo
+     *
+     * @param source     二维码
+     * @param width      二维码宽度
+     * @param height     二维码高度
+     * @param logoUrl    logo 在线地址
+     * @param logoWidth  logo 宽度
+     * @param logoHeight logo 高度
+     * @throws Exception
+     */
+    private void insertLogo(BufferedImage source, Integer width, Integer height, String logoUrl, Integer logoWidth, Integer logoHeight) throws Exception {
+        // logo 源可为 File/InputStream/URL
+        Image src = ImageIO.read(new URL(logoUrl));
+        // 插入LOGO
+        Graphics2D graph = source.createGraphics();
+        int x = (width - logoWidth) / 2;
+        int y = (height - logoHeight) / 2;
+        graph.drawImage(src, x, y, logoWidth, logoHeight, null);
+        Shape shape = new RoundRectangle2D.Float(x, y, logoWidth, logoHeight, 6, 6);
+        graph.setStroke(new BasicStroke(3f));
+        graph.draw(shape);
+        graph.dispose();
+    }
+
+
+    /**
+     * 获取二维码
+     *
+     * @param content 内容
+     * @param output  输出流
+     * @throws IOException
+     */
+    public void getQRCode(String content, OutputStream output) throws IOException {
+        BufferedImage image = crateQRCode(content, WIDTH, HEIGHT, null, null, null);
+        ImageIO.write(image, IMAGE_FORMAT, output);
+    }
+
+    /**
+     * 获取二维码
+     *
+     * @param content 内容
+     * @param logoUrl logo资源
+     * @param output  输出流
+     * @throws Exception
+     */
+    public void getQRCode(String content, String logoUrl, OutputStream output) throws Exception {
+        BufferedImage image = crateQRCode(content, WIDTH, HEIGHT, logoUrl, LOGO_WIDTH, LOGO_HEIGHT);
+        ImageIO.write(image, IMAGE_FORMAT, output);
+    }
+
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br></div></div><h3 id="测试入口"><a href="#测试入口" class="header-anchor">#</a> 测试入口</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>/**
+ * &lt;p&gt;
+ * QRCodeController
+ * &lt;/p&gt;
+ *
+ * @author rcbb.cc
+ * @date 2022/8/28
+ */
+@RestController
+@RequestMapping(&quot;/qrcode&quot;)
+public class QRCodeController {
+
+    /**
+     * 根据 content 生成二维码
+     *
+     * @param content
+     * @param width
+     * @param height
+     * @return
+     */
+    @GetMapping(&quot;/getQRCodeBase64&quot;)
+    public R getQRCode(@RequestParam(&quot;content&quot;) String content,
+                       @RequestParam(value = &quot;logoUrl&quot;, required = false) String logoUrl,
+                       @RequestParam(value = &quot;width&quot;, required = false) Integer width,
+                       @RequestParam(value = &quot;height&quot;, required = false) Integer height) {
+        return R.ok(QRCodeUtil.getBase64QRCode(content, logoUrl));
+    }
+
+    /**
+     * 根据 content 生成二维码
+     */
+    @GetMapping(value = &quot;/getQRCode&quot;)
+    public void getQRCode(HttpServletResponse response,
+                          @RequestParam(&quot;content&quot;) String content,
+                          @RequestParam(value = &quot;logoUrl&quot;, required = false) String logoUrl) throws Exception {
+        ServletOutputStream stream = null;
+        try {
+            stream = response.getOutputStream();
+            QRCodeUtil.getQRCode(content, logoUrl, stream);
+        } catch (Exception e) {
+            e.getStackTrace();
+        } finally {
+            if (stream != null) {
+                stream.flush();
+                stream.close();
+            }
+        }
+    }
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br></div></div><h3 id="效果"><a href="#效果" class="header-anchor">#</a> 效果</h3> <p>直接将图片资源以 Base64 的形式返回给了前端。</p> <p>测试请求：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://localhost:8080/qrcode/getQRCodeBase64?content=www.baidu.com
+
+{
+  &quot;code&quot;: 0,
+  &quot;msg&quot;: &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAABuklEQVR42u3aQY7EMAgEwPz/0zs/WGk0NGCn+hwlscsHZHj+ZH0eWwBJIEESSAIJkkASSJAEEiSBJJAgCSQpRnq68tV3/39454ogQYIECRKk9yFVljF1+9725oa9ggQJEiRIkO5FKqzfcgXbkhVBggQJEiRIkIaWlOOHBAkSJEiQIJ1f3eU6VZAgQYIECRKk8/tJud/Q9IMECRIkSJC6kKYmWKcufowZQ4IECRIkSAcmsR1LVwoJEiRIkCAdjFQ4SZqrlHLDsL8sEBIkSJAgQXo9Um7stPBVOf6GIhMSJEiQIEE6Gamwjlqyd7mzsqWfBAkSJEiQIC1Fyu1O4YfaHoYECRIkSJAgnbB3uXq1/1WQIEGCBAnSRUhtydVR4/UbJEiQIEGCdC/S05Xcd8dbRJAgQYIECdJbkdruY3KXRm1HBxIkSJAgQYIUW3Db4cidlaXVHSRIkCBBgvQ6pLYBmPlGGiRIkCBBggSpuDSaujRq4IcECRIkSJDuRcrdx+QaOTsHYCBBggQJEqQbkaYmWKf++chrIUiQIEGCBGkMSSAJJEgCCZJAEkiQBJJAgiSQBBIkgQRJIMk3+QBWsB+4yRwtkgAAAABJRU5ErkJggg==&quot;,
+  &quot;data&quot;: null
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/08/20220828225508-334a39.png?x-oss-process=style/yuantu_shuiyin" alt="二维码生成"></p> <p>带 Logo 的二维码，可以传入 logo 的 url，生成的二维码中间会带有 logo。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>http://localhost:8080/qrcode/getQRCodeBase64?content=www.baidu.com&amp;logoUrl=https://www.baidu.com/img/flexible/logo/pc/result.png
+
+{
+    &quot;code&quot;: 0,
+    &quot;msg&quot;: null,
+    &quot;data&quot;: &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAAhotZpAAADKElEQVR42u3bP2sUQRgH4OxeSG1hYWMhSNRgISq2gmBlIVhYWOoHEGuxMI1NCMHOwkL8Cn4EK8HOMginYKEQQghYJKgbF4blchcS3flzd8+PZUlg2buZZ2/v3Zm5hd9SfBZ0ASSBBEkgCSRIAkkgQRJIkASSQIIkkKRnpIVUOdHrHn1wmS2CBAkSJEiQ5g+pzzKmv35PduYEfQUJEiRIkCDNLlKP9Vu8gq2QFkGCBAkSJEiQMjUpHj8kSJAgQYIEafqru3gzVZAgQYIECRKk6Z9Pivc2TPpBggQJEiRIqZByrWDNNfBjmTEkSJAgQYI0hYnRHYW2FBIkSJAgQZpipB5XksarlOIthv2fBs4RUlGDhJBi3ccgRUQqcLgd0sRGjn3dS1eHN25+bfbN5jupt/fR75xQy9Nuk17oOK3o8bIrpbqDBAnSDCG1NmfOrjb785ffjzhBKgWpe6p5R+rx2b7HBh9GOv5J4q1pKWU+qSikC1c+nTp9H1JxSHubmwEpPCSNRRou1ZDSIXW7e+vJ47FIzTFhezSo2j8g5UHaebnRnurcxXdrG1vhM3RvUDXb56X6dl01SA8Hldtd9F+GdA9okJp/1xfrO3V192/vh4qu+5y0+/bNzvpasz/8SfrnS2c6hoXKQWr7/fliPQlp5HY3qQSHFBGpdWqRAsyHjz+b/eqLre7BPknZkK7XVRfp1evtgNSa7Q+HzdYiLdcHG6SkSLfqqnu7C3e5LtIR1R2kflp4NFL4WgpI33/sHzw27f0KSOHgpgKcVH+nLPYgDUcGILoHbz97mmtsfn6RmjwYjLndhW3l2pfu7e7byjKkREhpFtRBgpQDKVnirVHNXr/NLFKyuUdIkCBBglQuUq5fmOZarpz9NzaQIEGCBAnSDCHlevLvsSuTXTqQIEGCBAkSpGgNTnZxxLtWCq3uIEGCBAkSpLlDSrYAJv9EGiRIkCBBggSp59Io16BRAn5IkCBBggRpdpHijcfEm8gpcwEMJEiQIEGCNItIuVaw5nrPUzksBAkSJEiQIGVDEkgCCZJAgiSQBBIkgSSQIAkkgQRJIEESSHKS/AGHCLnTQ9OTzwAAAABJRU5ErkJggg==&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/08/20220828230428-21e989.png?x-oss-process=style/yuantu_shuiyin" alt="带Logo的二维码"></p> <p>也可以选择使用返回流的方式给前端。</p> <h2 id="源码"><a href="#源码" class="header-anchor">#</a> 源码</h2> <p><a href="https://github.com/rcbb-cc/fast-start-guide" target="_blank" rel="noopener noreferrer">zxing-demo Github地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>更多好文，请关注<a href="https://rcbb.cc" target="_blank" rel="noopener noreferrer">我的博客<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></div> <div class="page-slot page-slot-bottom"></br><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="auto"
+     data-ad-client="ca-pub-8621788234752924"
+     data-ad-slot="7043271566"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div> <div class="page-edit"><!----> <div class="tags"><a href="/tags/?tag=%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90" title="标签">#二维码生成</a></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">10/7/2022</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/d57d55/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">行为验证码(AJ-Captcha快速入门)</div></a> <a href="/pages/32549d/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">Spring Security学习总结</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/d57d55/" class="prev">行为验证码(AJ-Captcha快速入门)</a></span> <span class="next"><a href="/pages/32549d/">Spring Security学习总结</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/cbd47e/"><div>
+            Nacos容器化
+            <!----></div></a> <span class="date">11-11</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/75e36d/"><div>
+            好用的截图工具
+            <!----></div></a> <span class="date">11-10</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/996107/"><div>
+            使用PicGo上传图片到自己的图床
+            <!----></div></a> <span class="date">11-10</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/rcbb-cc" title="Star我" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/playlist?id=5161366267" title="有品位的歌单" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2021-2022
+    <span>日常bb | <a href="https://beian.miit.gov.cn/" target="_blank" style="font-weight:normal">鄂ICP备17023998号</a> </span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><!----><div></div></div></div>
+    <script src="/assets/js/app.194a4a95.js" defer></script><script src="/assets/js/2.2be692c2.js" defer></script><script src="/assets/js/15.76508887.js" defer></script>
+  </body>
+</html>
