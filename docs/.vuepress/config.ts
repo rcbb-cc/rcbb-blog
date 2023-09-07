@@ -32,10 +32,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
                 link: '/article/'
             },
             {
-                text: '笔记',
-                link: '/note/'
-            },
-            {
                 text: '冥思',
                 link: '/idea/'
             },
