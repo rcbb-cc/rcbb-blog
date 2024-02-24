@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实战单体应用(认证授权服务+资源服务) | 日常bb</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/img/favicon.ico">
+    <script data-ad-client="ca-pub-8621788234752924" async="true" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8621788234752924" crossorigin="anonymous"></script>
+    <meta name="description" content="一些技术，一些随想，一些资源收藏。">
+    <meta name="keywords" content="后端技术,rcbb,个人博客">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#7b074b">
+    
+    <link rel="preload" href="/assets/css/0.styles.d40c2a0a.css" as="style"><link rel="preload" href="/assets/js/app.f183bd5e.js" as="script"><link rel="preload" href="/assets/js/2.ae7bab8c.js" as="script"><link rel="preload" href="/assets/js/28.4a9f641c.js" as="script"><link rel="prefetch" href="/assets/js/10.d53102f6.js"><link rel="prefetch" href="/assets/js/11.646febf5.js"><link rel="prefetch" href="/assets/js/12.81887ce3.js"><link rel="prefetch" href="/assets/js/13.621637c0.js"><link rel="prefetch" href="/assets/js/14.0150f885.js"><link rel="prefetch" href="/assets/js/15.7f18f496.js"><link rel="prefetch" href="/assets/js/16.69fb7a46.js"><link rel="prefetch" href="/assets/js/17.4dfbd4bc.js"><link rel="prefetch" href="/assets/js/18.61b5564d.js"><link rel="prefetch" href="/assets/js/19.0ee58fc9.js"><link rel="prefetch" href="/assets/js/20.487616f8.js"><link rel="prefetch" href="/assets/js/21.90e70f27.js"><link rel="prefetch" href="/assets/js/22.d6b983de.js"><link rel="prefetch" href="/assets/js/23.cc82aeb0.js"><link rel="prefetch" href="/assets/js/24.7ac2bb62.js"><link rel="prefetch" href="/assets/js/25.d13a82d3.js"><link rel="prefetch" href="/assets/js/26.e45f9ab4.js"><link rel="prefetch" href="/assets/js/27.1740771b.js"><link rel="prefetch" href="/assets/js/29.677e0d93.js"><link rel="prefetch" href="/assets/js/3.396601ce.js"><link rel="prefetch" href="/assets/js/30.b260e854.js"><link rel="prefetch" href="/assets/js/31.18d6e525.js"><link rel="prefetch" href="/assets/js/32.6ee41b9e.js"><link rel="prefetch" href="/assets/js/33.89a8e1fd.js"><link rel="prefetch" href="/assets/js/34.3397a4d5.js"><link rel="prefetch" href="/assets/js/35.2a92ff28.js"><link rel="prefetch" href="/assets/js/36.23517e3e.js"><link rel="prefetch" href="/assets/js/37.9b7ffa67.js"><link rel="prefetch" href="/assets/js/38.6312ab8f.js"><link rel="prefetch" href="/assets/js/39.6cb32187.js"><link rel="prefetch" href="/assets/js/4.910dd52c.js"><link rel="prefetch" href="/assets/js/40.6f4d84a4.js"><link rel="prefetch" href="/assets/js/41.c1153c1c.js"><link rel="prefetch" href="/assets/js/42.f49d51d4.js"><link rel="prefetch" href="/assets/js/43.0ca861fd.js"><link rel="prefetch" href="/assets/js/44.9f5da1c3.js"><link rel="prefetch" href="/assets/js/45.75034ebd.js"><link rel="prefetch" href="/assets/js/46.9c872dd5.js"><link rel="prefetch" href="/assets/js/47.5f47c069.js"><link rel="prefetch" href="/assets/js/48.987beed0.js"><link rel="prefetch" href="/assets/js/49.a36c3d68.js"><link rel="prefetch" href="/assets/js/5.6de11f6c.js"><link rel="prefetch" href="/assets/js/50.5216ae3c.js"><link rel="prefetch" href="/assets/js/51.baa5293d.js"><link rel="prefetch" href="/assets/js/52.46ad157e.js"><link rel="prefetch" href="/assets/js/53.a9608afc.js"><link rel="prefetch" href="/assets/js/54.3615fe8a.js"><link rel="prefetch" href="/assets/js/55.dad36e14.js"><link rel="prefetch" href="/assets/js/56.83ff2c57.js"><link rel="prefetch" href="/assets/js/57.078795e4.js"><link rel="prefetch" href="/assets/js/58.bb3569c8.js"><link rel="prefetch" href="/assets/js/59.8743b223.js"><link rel="prefetch" href="/assets/js/6.df915fd0.js"><link rel="prefetch" href="/assets/js/60.dedae8eb.js"><link rel="prefetch" href="/assets/js/61.f64cb96f.js"><link rel="prefetch" href="/assets/js/7.f5cd3055.js"><link rel="prefetch" href="/assets/js/8.70d400ff.js"><link rel="prefetch" href="/assets/js/9.32d1a32c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d40c2a0a.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="日常bb" class="logo"> <span class="site-name can-hide">日常bb</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/article/" class="nav-link">文章</a></div><div class="nav-item"><a href="/idea/" class="nav-link">冥思</a></div><div class="nav-item"><a href="/other/" class="nav-link">其他</a></div><div class="nav-item"><a href="/favorites/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/rcbb-cc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar-hover-trigger"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://rcbb-public.oss-cn-guangzhou.aliyuncs.com/avatar.jpg"> <div class="blogger-info"><h3>日常bb</h3> <span>想起来全是问题，做起来才有答案。</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="/article/" class="nav-link">文章</a></div><div class="nav-item"><a href="/idea/" class="nav-link">冥思</a></div><div class="nav-item"><a href="/other/" class="nav-link">其他</a></div><div class="nav-item"><a href="/favorites/" class="nav-link">收藏</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="索引" class="dropdown-title"><a href="/archives/" class="link-title">索引</a> <span class="title" style="display:none;">索引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-item"><!----> <a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-item"><!----> <a href="/archives/" class="nav-link">归档</a></li></ul></div></div> <a href="https://github.com/rcbb-cc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Java</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Redis</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>Spring</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>基础使用</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading open"><span>Spring Security</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/32549d/" class="sidebar-link">Spring Security学习总结</a></li><li><a href="/pages/5fbd1a/" class="sidebar-link">Spring Security</a></li><li><a href="/pages/ffa63f/" class="sidebar-link">Spring Security OAuth2</a></li><li><a href="/pages/74390a/" aria-current="page" class="active sidebar-link">实战单体应用(认证授权服务+资源服务)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level2"><a href="/pages/74390a/#环境" class="sidebar-link">环境</a></li><li class="sidebar-sub-header level2"><a href="/pages/74390a/#授权配置和测试" class="sidebar-link">授权配置和测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_1、授权服务核心配置" class="sidebar-link">1、授权服务核心配置</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_2、spring-security-核心配置" class="sidebar-link">2、Spring Security 核心配置</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_3、访问测试" class="sidebar-link">3、访问测试</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_4、完善配置" class="sidebar-link">4、完善配置</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_5、重启服务测试" class="sidebar-link">5、重启服务测试</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_6、配置密码模式" class="sidebar-link">6、配置密码模式</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_7、测试简化模式" class="sidebar-link">7、测试简化模式</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_8、测试客户端模式" class="sidebar-link">8、测试客户端模式</a></li></ul></li><li class="sidebar-sub-header level2"><a href="/pages/74390a/#认证授权配置和测试" class="sidebar-link">认证授权配置和测试</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_1、创建测试资源" class="sidebar-link">1、创建测试资源</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_2、获取token后访问资源" class="sidebar-link">2、获取token后访问资源</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_3、新增资源服务配置" class="sidebar-link">3、新增资源服务配置</a></li><li class="sidebar-sub-header level3"><a href="/pages/74390a/#_4、给资源添加权限" class="sidebar-link">4、给资源添加权限</a></li></ul></li></ul></li><li><a href="/pages/0d4207/" class="sidebar-link">实战模块化(认证授权服务+资源服务)</a></li><li><a href="/pages/412c27/" class="sidebar-link">Spring Security OAuth2自定义授权模式</a></li></ul></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>收藏</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>工具</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>概念</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>容器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>实战</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>AI</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>前端</span> <span class="arrow right"></span></p> <!----></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8621788234752924"
+     data-ad-slot="8498052873"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-06225672><div class="articleInfo" data-v-06225672><ul class="breadcrumbs" data-v-06225672><li data-v-06225672><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-06225672></a></li> <li data-v-06225672><a href="/article/#文章" data-v-06225672>文章</a></li><li data-v-06225672><a href="/article/#Spring" data-v-06225672>Spring</a></li><li data-v-06225672><a href="/article/#Spring Security" data-v-06225672>Spring Security</a></li></ul> <div class="info" data-v-06225672><div title="作者" class="author iconfont icon-touxiang" data-v-06225672><a href="https://rcbb.cc/" target="_blank" title="作者" class="beLink" data-v-06225672>rcbb</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-06225672><a href="javascript:;" data-v-06225672>2022-10-04</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-title">目录</div> <div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABH1JREFUSA3tVl1oHFUUPmdmd2ltklqbpJDiNnXFmgbFktho7YMPNiJSSZM0+CAYSkUELVhM6YuwIPpgoOKDqOBDC0XE2CQoNtQXBUFTTcCi+Wlh1V2TQExsUzcltd3M9Tt3ZjZzZ2fT+OJTL8yeM+eee757fmeJbq//KQL8X3DUSFOcfr7cRsRtxNQMWueeVzOkaITIGqQHNg5y8+jNW9ldM7A6nTpAjuolUikAwq7CE3WcM2RRDz+XGVgN3FptU/aUSlvq9Pa3iZ1+sgAqJyyAFqkipd9dqiwHF3P65YycLWc/6sqGrvoEoIp6DOFaX5h6+dnfjkWprwqsPk0dUGq5vySwDImC10KxFHgGL1SWoc92O3eVht09qdXNH11I2SsTsJYqMWzihqGMi+A+Garf3BAuuLI5oGlULyNfyB/HYNujwktOfRrMr5t77NmevqaUopx0grnKAyvVpmwUDB4x6FPXuGvYLTDwWsejwgtgkYKPqRJg8SV6xaiZ3ZTppGneS4yfH5/66fZSDHv+QZci/+h5c5UHtpy67JUqGppM0sh0Nc1dW6/N1W5Yoqat8/TU/VnadmdeW2PLLSyh0cvxBs3KbqTmwYPpxN4do/mzE8nEpvX/UMu2Wbp74zUAK5q6WkHns7V0eWkdPbPzd3rxkTGybadYySumVzhcaJFbs5UrEkQ/+CK8gF5dnh/6ciIZ73gwQ927L1IitoxKLXYP3SjYdOrHHfTZhRRlFyrorafPk20B3HPD1y2G3qKZME5Jcf3t/HUC13/8tSd++vqFveMUTwAUxSUFI1QekR1+bIze3D9MF2aq6cPvG72CgnldWCFqyRw3lwH8ZMerjTD9ElRO7Gv44wNpC90aASqGfVlz/Rx17srQ57/UU26hkhQqUB7dBR71WmzQhHUnblGmVOEw0jhbV1n9OlXUDCIRGaNV5Jp43N516fN7JmnTHdfp7Hgy0luO4aMhtkLL8Bi3bUWYvzh5Mn1dTxrL6QmGuRhGL/TiTTxRoEdTszSaq9GR0NGA3KdkOz3hqSV3MIDhQ5IVX/Ivx3umBti2es2h4eZby7x8br1rkf7Mo90AqC8aQ3sJeNzqFRu+vSANAQe3PL7l0HGOAdwDCeZYvNKeoZp1Qfs6Aipndh86HmFRi0LAnEO47wsqM6cdfjh3jBPUzhZy7nvlUfFsamED1VQt6aISHVymXZ/B2aCtIG8AI8xfobj2d3en1wWVhOeHELKmLQ1s211s88comkv4UCwWyF787mJdYXtNfhKAXVqnKTq8QZvGAGGOfaTo5pGZ/PwbUCr5+DPr/1J92JNHr9aOl/F3iI5+O1nfybsGxoimvZ3ViWSluDITw3P37mypheDIPY0tw7+O/5ApbkYw+zpfaUVu32Pi98+defdUhEpZkRFq0aqyNh9FuL9hpYbEm6iwi0z2REd09ZmyENEbuhjDWzKvZXTqKYaBIr3tt5kuPtQBZFvEUwHt60vfCNu41XsksH9Ij1BMMz1Y0OOunHNShFIP5868g5zeXmuLwL9T4b6Q2+KejgAAAABJRU5ErkJggg==">实战单体应用(认证授权服务+资源服务)<!----></h1>  <div class="theme-vdoing-content content__default"><h1 id="实战-认证授权服务-资源服务"><a href="#实战-认证授权服务-资源服务" class="header-anchor">#</a> 实战(认证授权服务+资源服务)</h1> <p>有了前面几篇文章的理论支持，是时候上实战了。</p> <p>首先以单体的视角来进行集成，也就是认证服务和资源服务在一起，是一个单体项目。</p> <p><a href="https://github.com/rcbb-cc/fast-start-guide" target="_blank" rel="noopener noreferrer">auth-resources-demo Github地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="环境"><a href="#环境" class="header-anchor">#</a> 环境</h2> <p>父类 pom 控制所有依赖版本。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;parent&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+	&lt;version&gt;2.7.4&lt;/version&gt;
+	&lt;relativePath/&gt;
+&lt;/parent&gt;
+
+&lt;properties&gt;
+	&lt;java.version&gt;11&lt;/java.version&gt;
+	&lt;spring-boot.version&gt;2.3.2.RELEASE&lt;/spring-boot.version&gt;
+	&lt;spring-cloud.version&gt;Hoxton.SR9&lt;/spring-cloud.version&gt;
+	&lt;spring-cloud-alibaba.version&gt;2.2.5.RELEASE&lt;/spring-cloud-alibaba.version&gt;
+&lt;/properties&gt;
+
+&lt;dependencyManagement&gt;
+	&lt;dependencies&gt;
+		&lt;!-- spring cloud alibaba 依赖 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt;
+			&lt;version&gt;${spring-cloud-alibaba.version}&lt;/version&gt;
+			&lt;type&gt;pom&lt;/type&gt;
+			&lt;scope&gt;import&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;!-- spring cloud 依赖 --&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;
+			&lt;version&gt;${spring-cloud.version}&lt;/version&gt;
+			&lt;type&gt;pom&lt;/type&gt;
+			&lt;scope&gt;import&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+&lt;/dependencyManagement&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><p>子类依赖主要是<code>spring-boot-starter-web</code>和<code>spring-security-oauth2-autoconfigure</code>。
+通过微服务版本限定后<code>spring-security-oauth2-autoconfigure</code>的最终版本自动适配为2.1.2。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;dependencies&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+		&lt;scope&gt;test&lt;/scope&gt;
+	&lt;/dependency&gt;
+	&lt;!--安全模块--&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.security.oauth.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-security-oauth2-autoconfigure&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+
+	&lt;!--server-api--&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+		&lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h2 id="授权配置和测试"><a href="#授权配置和测试" class="header-anchor">#</a> 授权配置和测试</h2> <p>需要什么配置就写什么配置，主要是梳理流程。</p> <h3 id="_1、授权服务核心配置"><a href="#_1、授权服务核心配置" class="header-anchor">#</a> 1、授权服务核心配置</h3> <p><strong>AuthorizationServerConfig</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Configuration
+@EnableAuthorizationServer
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_2、spring-security-核心配置"><a href="#_2、spring-security-核心配置" class="header-anchor">#</a> 2、Spring Security 核心配置</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="_3、访问测试"><a href="#_3、访问测试" class="header-anchor">#</a> 3、访问测试</h3> <blockquote><p>http://127.0.0.1:8080/oauth/authorize</p></blockquote> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004013619-411c37.png?x-oss-process=style/yuantu_shuiyin" alt="please sign in"></p> <p>任意输入账号密码，会提示账号或密码错误。</p> <h3 id="_4、完善配置"><a href="#_4、完善配置" class="header-anchor">#</a> 4、完善配置</h3> <p><code>WebSecurityConfig</code>，因为重点是在于梳理流程，所以用户信息使用硬编码方式。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Bean
+public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+}
+
+@Autowired
+public PasswordEncoder passwordEncoders() {
+    return new BCryptPasswordEncoder();
+}
+
+
+@Autowired
+public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+    // 配置全局用户信息
+    auth.inMemoryAuthentication().withUser(&quot;admin&quot;)
+            .password(passwordEncoders().encode(&quot;123456&quot;))
+            .authorities(AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;user_add,user_update,ROLE_ADMIN&quot;));
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><code>AuthorizationServerConfig</code>，授权服配置端点信息。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Autowired
+private PasswordEncoder passwordEncoder;
+
+@Override
+public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+    // 基于内存便于测试，使用in-memory存储
+    clients.inMemory()
+            // client_id
+            .withClient(&quot;rcbb&quot;)
+            // 未加密
+            //.secret(&quot;secret&quot;)
+            // 加密
+            .secret(passwordEncoder.encode(&quot;rcbb&quot;))
+            // 资源列表
+            //.resourceIds(&quot;res1&quot;)
+            // 该client允许的授权类型authorization_code,password,refresh_token,implicit,client_credentials
+            .authorizedGrantTypes(&quot;authorization_code&quot;, &quot;password&quot;, &quot;client_credentials&quot;, &quot;implicit&quot;, &quot;refresh_token&quot;)
+            // 允许的授权范围
+            .scopes(&quot;all&quot;, &quot;ROLE_ADMIN&quot;, &quot;ROLE_USER&quot;)
+            // false跳转到授权页面
+            //.autoApprove(false)
+            //加上验证回调地址
+            .redirectUris(&quot;http://rcbb.cc&quot;);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><h3 id="_5、重启服务测试"><a href="#_5、重启服务测试" class="header-anchor">#</a> 5、重启服务测试</h3> <p>这次我们使用授权码方式进行测试，加上一些参数。</p> <p><code>response_type=code</code> <code>client_id=rcbb</code> <code>redirect_uri=http://rcbb.cc</code> <code>scope=all</code></p> <blockquote><p>http://127.0.0.1:8080/oauth/authorize?response_type=code&amp;client_id=rcbb&amp;redirect_uri=http://rcbb.cc&amp;scope=all</p></blockquote> <p>出现登录页面，输入我们<code>WebSecurityConfig</code>配置的用户信息<code>admin/123456</code>。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004014830-c4157d.png?x-oss-process=style/yuantu_shuiyin" alt="OAuth Approval"></p> <p>然后就会成功，并且让我们选择是否授权。</p> <p>授权成功后，会跳到对应的网址，并且<code>url</code>会接上我们所需的<code>code</code>。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004014959-1e0611.png?x-oss-process=style/yuantu_shuiyin" alt="rcbb"></p> <p>拿到授权码后，进行获取<code>token</code>的测试。我使用的是<code>PostMan</code>工具进行测试。</p> <p>首先需要在<code>Authorization</code>上选择对应的<code>Type</code>并填上<code>AuthorizationServerConfig</code>中配置的<code>client</code>信息。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004015233-f9032b.png?x-oss-process=style/yuantu_shuiyin" alt="postman"></p> <p>然后<code>Body</code>体以<code>x-www-form-urlencoded</code>的方式，填上对应的参数。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004015517-e409e1.png?x-oss-process=style/yuantu_shuiyin" alt="postman"></p> <p>请求的<code>curl</code></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>curl --location --request POST 'http://127.0.0.1:8080/oauth/token' \
+--header 'Authorization: Basic cmNiYjpyY2Ji' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=authorization_code' \
+--data-urlencode 'code=fB3uZl' \
+--data-urlencode 'redirect_uri=http://rcbb.cc' \
+--data-urlencode 'scope=all' \
+--data-urlencode 'client_id=rcbb'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>测试成功，成功获取<code>token</code>。</p> <h3 id="_6、配置密码模式"><a href="#_6、配置密码模式" class="header-anchor">#</a> 6、配置密码模式</h3> <p>使用密码模式，发现并不支持。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004142423-fc98c1.png?x-oss-process=style/yuantu_shuiyin" alt="不支持密码模式"></p> <p><code>WebSecurityConfig</code>补充配置认证管理器<code>AuthenticationManager</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Bean
+public AuthenticationManager authenticationManagerBean() throws Exception {
+	return super.authenticationManagerBean();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p><code>AuthorizationServerConfig</code>补充配置密码模式。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Autowired
+private AuthenticationManager authenticationManager;
+
+/**
+ * 配置令牌的访问端点和令牌服务
+ *
+ * @param endpoints the endpoints configurer
+ * @throws Exception
+ */
+@Override
+public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    // 配置认证管理器
+    endpoints.authenticationManager(authenticationManager);
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>重启服务进行测试。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004142914-84323b.png?x-oss-process=style/yuantu_shuiyin" alt="通过密码获取token"></p> <p>请求的<code>curl</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>curl --location --request POST 'http://127.0.0.1:8080/oauth/token' \
+--header 'Authorization: Basic cmNiYjpyY2Ji' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=password' \
+--data-urlencode 'username=admin' \
+--data-urlencode 'password=123456'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h3 id="_7、测试简化模式"><a href="#_7、测试简化模式" class="header-anchor">#</a> 7、测试简化模式</h3> <p>请求参数：</p> <p><code>response_type=token</code> <code>client_id=rcbb</code> <code>redirect_uri=http://rcbb.cc</code> <code>scope=all</code></p> <blockquote><p>http://127.0.0.1:8080/oauth/authorize?response_type=token&amp;client_id=rcbb&amp;redirect_uri=http://rcbb.cc&amp;scope=all</p></blockquote> <p>授权成功后，<code>token</code>的信息直接返回在<code>url</code>上了。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004143415-821ef8.png?x-oss-process=style/yuantu_shuiyin" alt="简化模式"></p> <h3 id="_8、测试客户端模式"><a href="#_8、测试客户端模式" class="header-anchor">#</a> 8、测试客户端模式</h3> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004144548-f17da0.png?x-oss-process=style/yuantu_shuiyin" alt="客户端模式"></p> <p>请求的<code>curl</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>curl --location --request POST 'http://127.0.0.1:8080/oauth/token' \
+--header 'Authorization: Basic cmNiYjpyY2Ji' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'grant_type=client_credentials' \
+--data-urlencode 'client_id=rcbb' \
+--data-urlencode 'client_secret=rcbb'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><h2 id="认证授权配置和测试"><a href="#认证授权配置和测试" class="header-anchor">#</a> 认证授权配置和测试</h2> <h3 id="_1、创建测试资源"><a href="#_1、创建测试资源" class="header-anchor">#</a> 1、创建测试资源</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+
+    @PostMapping
+    public String save() {
+        return &quot;save() success&quot;;
+    }
+
+    @PutMapping
+    public String update() {
+        return &quot;update() success&quot;;
+    }
+
+    @GetMapping
+    public String list() {
+        return &quot;list() success&quot;;
+    }
+    
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><p>三个请求：</p> <ul><li>post:/user 新增用户信息</li> <li>put:/user 修改用户信息</li> <li>get:/user 获取用户信息</li></ul> <h3 id="_2、获取token后访问资源"><a href="#_2、获取token后访问资源" class="header-anchor">#</a> 2、获取<code>token</code>后访问资源</h3> <p>先获取<code>token</code>。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004145358-34f5e4.png?x-oss-process=style/yuantu_shuiyin" alt="通过密码获取token"></p> <p>虽然请求中携带了<code>token</code>值，但是还是<code>401 Unauthorized</code>。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004145452-19d863.png?x-oss-process=style/yuantu_shuiyin" alt="401 Unauthorized"></p> <p>这是为啥？？？</p> <p>正常情况下，认证授权服务和资源服务是分开的。</p> <p>正常认证授权服务是接管<code>/oauth/token</code>、<code>/oauth/token_key</code>、<code>/oauth/check_token</code>，这三个请求，也就是这三个请求会被<code>Spring Security OAuth2</code>处理。</p> <p>然后我们自己写的资源应该是在资源服务上，例如<code>/user</code>请求就会被<code>Spring Security</code>处理。</p> <p>那这种单体情况，如何处理？</p> <h3 id="_3、新增资源服务配置"><a href="#_3、新增资源服务配置" class="header-anchor">#</a> 3、新增资源服务配置</h3> <p>认证授权服务和资源服务写在一起。</p> <p><code>ResourceServerConfig</code>资源服务配置。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Configuration
+@EnableResourceServer
+// 开启注解鉴权
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+    //配置资源服安全规则
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http
+                // 授权的请求
+                .authorizeRequests()
+                // 任何请求
+                .anyRequest()
+                // 需要身份认证
+                .authenticated()
+                .and().csrf().disable();
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>重启服务，再次请求。<code>token</code>错误。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004150634-9513dd.png?x-oss-process=style/yuantu_shuiyin" alt="invalid_token"></p> <p>因为默认<code>token</code>是存在内存中（可以配置存储在MySQL、Redis中）的，所以这里重新获取一次<code>token</code>就行了。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004150754-7a4c09.png?x-oss-process=style/yuantu_shuiyin" alt="请求成功"></p> <h3 id="_4、给资源添加权限"><a href="#_4、给资源添加权限" class="header-anchor">#</a> 4、给资源添加权限</h3> <p><code>@Secured(&quot;ROLE_ADMIN&quot;)</code>：专门用于判断是否具有角色。</p> <p><code>@PreAuthorize(&quot;hasAuthority('user_add')&quot;)</code>即可判断权限，也可以判断身份，还可以使用正则判断。<br>
+如果是判断身份，那么需要填写<code>@PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)</code>。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+
+    @PreAuthorize(&quot;hasAuthority('user_add')&quot;)
+    @PostMapping
+    public String save() {
+        return &quot;save() success&quot;;
+    }
+
+    @PreAuthorize(&quot;hasAuthority('user_remove')&quot;)
+    @DeleteMapping
+    public String remove() {
+        return &quot;remove() success&quot;;
+    }
+
+    @PreAuthorize(&quot;hasAuthority('user_update')&quot;)
+    @PutMapping
+    public String update() {
+        return &quot;update() success&quot;;
+    }
+
+    @Secured(&quot;ROLE_ADMIN&quot;)
+    @GetMapping
+    public String list() {
+        return &quot;list() success&quot;;
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>我们目前的用户信息是在<code>WebSecurityConfig</code>硬编码配置的。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>@Autowired
+public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
+	// 配置全局用户信息
+	auth.inMemoryAuthentication().withUser(&quot;admin&quot;)
+			.password(passwordEncoders().encode(&quot;123456&quot;))
+			.authorities(AuthorityUtils.commaSeparatedStringToAuthorityList(&quot;user_add,user_update,ROLE_ADMIN&quot;));
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><p>所以对应上面的资源所需权限，<code>DELETE:/user</code>是无法访问的。</p> <p><img src="https://rcbb-blog.oss-cn-guangzhou.aliyuncs.com/2022/10/20221004154304-9c35f3.png?x-oss-process=style/yuantu_shuiyin" alt="无法访问"></p> <p>其他资源可正常访问。</p></div></div> <div class="page-slot page-slot-bottom"></br><ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="auto"
+     data-ad-client="ca-pub-8621788234752924"
+     data-ad-slot="7043271566"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div> <div class="page-edit"><!----> <div class="tags"><a href="/tags/?tag=Spring%20Security" title="标签">#Spring Security</a></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">10/7/2022</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/pages/ffa63f/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">Spring Security OAuth2</div></a> <a href="/pages/0d4207/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">实战模块化(认证授权服务+资源服务)</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/pages/ffa63f/" class="prev">Spring Security OAuth2</a></span> <span class="next"><a href="/pages/0d4207/">实战模块化(认证授权服务+资源服务)</a>→
+      </span></p></div></div></div> <div class="article-list"><div class="article-title"><a href="/archives/" class="iconfont icon-bi">最近更新</a></div> <div class="article-wrapper"><dl><dd>01</dd> <dt><a href="/pages/82530f/"><div>
+            ChatGPT Plus订阅指南
+            <!----></div></a> <span class="date">02-24</span></dt></dl><dl><dd>02</dd> <dt><a href="/pages/8b23f4/"><div>
+            使用nvm控制node版本
+            <!----></div></a> <span class="date">01-26</span></dt></dl><dl><dd>03</dd> <dt><a href="/pages/0e4b5e/"><div>
+            git clone 报错：Filename too long
+            <!----></div></a> <span class="date">01-26</span></dt></dl> <dl><dd></dd> <dt><a href="/archives/" class="more">更多文章&gt;</a></dt></dl></div></div></main></div> <div class="footer"><div class="icons"><a href="https://github.com/rcbb-cc" title="Star我" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/playlist?id=5161366267" title="有品位的歌单" target="_blank" class="iconfont icon-erji"></a></div> 
+  Theme by
+  <a href="https://github.com/xugaoyi/vuepress-theme-vdoing" target="_blank" title="本站主题">Vdoing</a> 
+    | Copyright © 2021-2024
+    <span>日常bb | <a href="https://beian.miit.gov.cn/" target="_blank" style="font-weight:normal">鄂ICP备17023998号</a> </span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">
+          跟随系统
+        </li><li class="iconfont icon-rijianmoshi">
+          浅色模式
+        </li><li class="iconfont icon-yejianmoshi">
+          深色模式
+        </li><li class="iconfont icon-yuedu">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><!----><div></div></div></div>
+    <script src="/assets/js/app.f183bd5e.js" defer></script><script src="/assets/js/2.ae7bab8c.js" defer></script><script src="/assets/js/28.4a9f641c.js" defer></script>
+  </body>
+</html>
